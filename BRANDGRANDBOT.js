@@ -6,19 +6,44 @@ const axios = require('axios');
 const cleverbot = require("cleverbot-free");
 const Enmap = require("enmap");
 const prefix = process.env.PREFIX;
+const prefix2 = process.env.PREFIX2;
 const token = process.env.TOKEN;
 const https = require('https');
 const express = require('express');
 const app = express();
 const owner = "531186390717825074";
-const client = new Discord.Client({ ws: { intents: 32767 } });
+const client = new Discord.Client
 const ver = "Beta 2.0.0";
 module.exports.client = client;
+
+client.on("guildMemberAdd", (member) => { //usage of welcome event
+  let chx = db.get(`welchannel_${member.guild.id}`); //defining var
+  let msg = db.get(`welmsg_${member.guild.id}`);
+  if(chx === null) { //check if var have value or not
+    return;
+  }
+
+  let wembed = new Discord.MessageEmbed() //define embed
+  .setAuthor(member.user.username, member.user.avatarURL())
+  .setColor("#ff2050")
+  .setThumbnail(member.user.avatarURL())
+  .setDescription(msg);
+  
+  client.channels.cache.get(chx).send(wembed) //get channel and send embed
+})
 
 client.commands = new Discord.Collection();
 
 const cooldowns = new Discord.Collection();
 
+client.on("guildCreate", server => {
+  let embed = new Discord.RichEmbed() // Makes a pretty embed
+    .setTitle("Thanks for adding me to your server!")
+    .setDescription("To Get Help Do ``/help`` Or Visit https://discord.gg/525PbHt")
+    .setColor("RANDOM")
+    .setFooter("© Brandgrand!bot Made by Brandgrand!real");
+  server.owner.send(embed);
+});
 // command handling
 const commandFolder = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
@@ -39,11 +64,11 @@ for (const file of commandFolder) {
 
 client.once('ready', () => {
 	console.log('Ready!');
-client.user.setActivity(`${client.guilds.cache.size} servers! | /help`, { type: 'WATCHING' });
+client.user.setActivity(`${client.guilds.cache.size} servers! | ( , / | /help`, { type: 'WATCHING' });
 });
 client.on('message', message => {       
 	const args = message.content.slice(prefix.length).split(/ +/);
-  if (!message.content.startsWith(prefix)) return;
+  if (!message.content.startsWith(prefix) && !message.content.startsWith(prefix2)) return;
 	const commandName = args.shift().toLowerCase();
 if (message.author.id == '675485335597350914') return; // SBT
 	const command = client.commands.get(commandName)
@@ -95,10 +120,12 @@ if (!message.member.hasPermission('ADMINISTRATOR') && message.author.id !== '465
 		message.reply('there was an error trying to execute that command!');
 	}
 });
-
-app.get('/', (req, res) => {
-    res.sendStatus(200);
+app.use(express.static("website/public"));
+app.get("/", (request, response) => {
+  response.sendFile(__dirname + "/website/pages/home.html");
 });
-
+app.get("/commands", (request, response) => {
+  response.sendFile(__dirname + "/website/pages/commands.html");
+});
 app.listen(3000, () => console.log('Online!'));
 client.login(token);

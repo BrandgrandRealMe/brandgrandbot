@@ -1,7 +1,9 @@
-var ids = ['465564943065022475', '531186390717825074'];
+var ids = '531186390717825074';
 module.exports = {
+    catagory: 'bot',
     name: 'help',
     description: '(The one you just ran!) List of all commands!',
+      aliases: ['?', 'cmds'],
     execute(message, args, client) {
 const commands = client.commands;
       const data = [];
@@ -28,23 +30,49 @@ message.channel.send(data, { split: true })} else {
       const Discord = require('discord.js');
       const MessageEmbed = Discord.MessageEmbed;
       const ownerEmbed = new MessageEmbed()
-      .setTitle('Brandgrand!bot Owner Help‎')
-      .setDescription('Brandgrand!bot Is A Bot Made by Brandgrand!real It is written with Discord.js.');
-      
-      const userEmbed = new MessageEmbed()
-      .setTitle('Brandgrand!bot Help‎')// the ‎ does not show up i think
-      .setDescription('Brandgrand!bot Is A Bot Made by Brandgrand!real It is written with Discord.js.');
-      
+      .setTitle('Owner Commands')
+      .setDescription('\u200B');
+      const mainEmbed = new MessageEmbed()
+      .setTitle('Brandgrand!bot Help')// the ‎ does not show up i think
+      .setDescription('Brandgrand!bot Is A Bot Made by Brandgrand!real It is written with Discord.js.\nIf You Need Support Please Do One Of The Following:\nDM <@740270451754008638>\nJoin: https://discord.gg/C4bvPw');
+      const funEmbed = new MessageEmbed()
+      .setTitle('Fun Commands‎')// the ‎ does not show up i think
+      .setDescription('\u200B');
+      const modEmbed = new MessageEmbed()
+      .setTitle('Mod Commands')// the ‎ does not show up i think
+      .setDescription('\u200B');
+      const utilEmbed = new MessageEmbed()
+      .setTitle('Util Commands')// the ‎ does not show up i think
+      .setDescription('\u200B');
+      const miscEmbed = new MessageEmbed()
+      .setTitle('Misc')// the ‎ does not show up i think
+      .setDescription('\u200B');
       data.forEach(cmdd => {
 cmdd.forEach(cmd => {
-  if (cmd === 'eval' || cmd === 'asynceval') return;
-      var dsc = commands.get(cmd).description;
-      var ownerownly = commands.get(cmd).ownerownly;
-          
-        console.log(cmd);
-                userEmbed.addField(cmd, dsc, true);
+  var catagory = commands.get(cmd).catagory;
+   var dsc = commands.get(cmd).description;
+   if (catagory === 'fun')
+     {funEmbed.addField(cmd, dsc, true)}
+     else if (catagory === 'mod')
+        {modEmbed.addField(cmd, dsc, true)}
+     else if (catagory === 'util')
+        {utilEmbed.addField(cmd, dsc, true)}
+     else if (catagory === 'owner')
+        {ownerEmbed.addField(cmd, dsc, true)}
+     else if (catagory === 'bot')
+        {mainEmbed.addField(cmd, dsc, true)}
+     else 
+        {miscEmbed.addField(cmd, dsc, true)}
       });
-      message.channel.send(userEmbed);
-        }); }
+      message.channel.send(mainEmbed);
+      message.channel.send(funEmbed);
+      message.channel.send(utilEmbed);
+      if (message.member.hasPermission('MANAGE_MESSAGES') | ids.includes(message.author.id))
+      message.channel.send(modEmbed)
+      if (ids.includes(message.author.id))
+      message.channel.send(ownerEmbed);
+        });
+  
+         }
 }
 };

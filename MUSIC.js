@@ -2,7 +2,7 @@
 const Discord = require('discord.js');
 const prefix = process.env.PREFIX;
 const token = process.env.TOKEN;
-const client = require('./BRANDGRANDBOT.js').client;
+const client = require('./BRANDGRANDBOTBETA.js').client;
 const queue = new Map();
 const ytdl = require('ytdl-core');
     DisTube = require('distube'),

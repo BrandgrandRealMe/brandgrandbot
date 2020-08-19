@@ -1,8 +1,10 @@
 module.exports = {
+  catagory: 'mod',
   name: 'kick',
   description: 'Kick someone.',
   execute: async(message, args, client, packageInfo, Discord) => {
   if (!message.guild) return;
+    if (!message.member.hasPermission('KICK_MEMBERS') && !ids.includes(message.author.id)) return message.reply('You dont have permission to do that!');
     const user = message.mentions.users.first();
     if (user) {
       const member = message.guild.member(user);
@@ -20,7 +22,7 @@ module.exports = {
           });
       } else if (!message.guild.member(user)) {
         // The mentioned user isn't in this guild
-        message.reply("That user isn't in this guild!");
+        message.reply("That user isn't in this server!");
       }
       // Otherwise, if no user was mentioned
     } else if (!message.mentions.users.size) {

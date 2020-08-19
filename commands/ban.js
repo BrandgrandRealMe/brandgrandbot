@@ -1,4 +1,5 @@
 module.exports = {
+  catagory: 'mod',
   name: 'ban',
   description: 'Ban someone!',
   execute: async (message, args, client, db, packageInfo, Discord) => {

@@ -1,4 +1,5 @@
 module.exports = {
+    catagory: 'fun',
     name: 'emoji',
     description: 'Send an animated emoji without nitro',
     aliases: [],

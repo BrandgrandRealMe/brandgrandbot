@@ -1,7 +1,7 @@
 var ids = ['465564943065022475', '531186390717825074'];
 const customisation = require('../customisation.json');
 module.exports = {
-  catagory: 'bot|fun|mod|util|owner',
+  catagory: 'util',
   name: '',
   description: '',
   usage: '<insert something here or remove field>',

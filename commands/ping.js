@@ -1,4 +1,5 @@
 module.exports = {
+  catagory: 'bot',
     name: 'ping',
     description: 'Pong!',
      execute: async(message, args, client) => {

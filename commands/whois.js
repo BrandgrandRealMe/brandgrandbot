@@ -1,5 +1,6 @@
 
 module.exports = {
+    catagory: 'util',
     name: 'whois',
     description: 'Get info on a user!',
     aliases: ['userinfo'],

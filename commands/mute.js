@@ -1,9 +1,11 @@
-var ids = ['465564943065022475', '531186390717825074'];
+var ids = '531186390717825074';
 module.exports = {
+  catagory: 'mod',
   name: 'mute',
   description: 'Mute Someone',
   usage: 'mute <@ping>',
   execute: async (message, args, client, db, packageInfo, Discord) => {
+      if (!message.member.hasPermission('MUTE_MEMBERS') && !ids.includes(message.author.id)) return message.reply('You dont have permission to do that!');
     let reason = args.slice(1).join(' ');
   if(!message.mentions.users.first())return message.reply("Please mention someone to mute them")
   let user = message.mentions.users.first();
@@ -44,7 +46,7 @@ module.exports = {
       .addField('User:', `${user.username}#${user.discriminator} (${user.id})`)
       .addField('Moderator:', `${message.author.username}#${message.author.discriminator}`)
       .addField('Reason', reason)
-      .setFooter(`© Cryptonix X Mod Bot by ${customisation.ownername}`);
+      .setFooter(`© Brandgrand!Bot by ${customisation.ownername}`);
       let logchannel = message.guild.channels.cache.find(x => x.name = 'logs');
       if  (!logchannel){
       message.channel.send({embed})

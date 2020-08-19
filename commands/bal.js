@@ -1,4 +1,5 @@
 module.exports = {
+    catagory: 'fun',
     name: 'bal',
     description: 'How much money you have.',
     aliases: ['balance', 'money'],

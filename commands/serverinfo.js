@@ -1,4 +1,4 @@
-    var ids = ['465564943065022475', '531186390717825074'];
+var ids = '531186390717825074';
     function checkDays(date) {
     let now = new Date();
     let diff = now.getTime() - date.getTime();
@@ -6,6 +6,7 @@
     return days + (days == 1 ? " day" : " days") + " ago";
 };
 module.exports = {
+  catagory: 'util',
   name: 'serverinfo',
   description: 'Get the servers info!',
   usage: 'serverinfo',

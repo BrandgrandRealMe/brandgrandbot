@@ -1,11 +1,12 @@
-var ids = ['465564943065022475', '531186390717825074'];
+var ids = '531186390717825074';
 const settings = require('../settings.json');
 const fs = require('fs');
 const customisation = require('../customisation.json');
 const osutils = require('os-utils');
 const version = require('../package.json')
-const ver = " VER 2.0"
+const ver = " VER 1.0"
 module.exports = {
+  catagory: 'bot',
   name: 'stats',
   description: 'get the bots stats',
   execute: async (message, args, client, db, packageInfo, Discord, ver) => {
@@ -29,8 +30,8 @@ module.exports = {
         .setURL(client.user.avatarURL({ format: 'png', dynamic: true, size: 2048 }))
         .setTimestamp()
         .addField("Brandgrand!bot" + ver, "Show the bot's stats.")
-        .addField("-------------------------------------------------------------------------------","----------------------------------------------------------------------------")
-        .addField("Global Prefix", "/", true)
+        .addField("════════════════════════","\u200B")
+        .addField("Global Prefix", "``/`` | ``(``", true)
         .addField("Total Commands", `${totcmds} commands`, true)
         .addField("Total Servers", `${client.guilds.cache.size}`, true)
         .addField("Total Channels", `${client.channels.cache.size}`, true)
@@ -38,7 +39,7 @@ module.exports = {
         .addField("Bot Version", version["version"], true)
         .addField("Library", "Discord.js v12", true)
         .addField("Developer", `${customisation.ownername}`, true)
-        .addField("-------------------------------------------------------------------------------","----------------------------------------------------------------------------")
+        .addField("════════════════════════","\u200B")
         .addField("Platform", osutils.platform(),true)
         .addField("VPS CPU Cores", osutils.cpuCount() + " Cores",true)
         .addField("CPU Usage", `${(v * 100).toString().split(".")[0] + "." + (v * 100).toString().split(".")[1].split('')[0] + (v * 100).toString().split(".")[1].split('')[1]}%`,true)

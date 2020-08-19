@@ -1,5 +1,6 @@
-var ids = ['465564943065022475', '531186390717825074'];
+var ids = '531186390717825074';
 module.exports = {
+  catagory: 'fun',
   name: '8ball',
   description: 'Ask the bot a Question.',
   usage: '8ball (question)',

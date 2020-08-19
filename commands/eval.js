@@ -1,9 +1,9 @@
-var ids = ['465564943065022475', '531186390717825074'];
+var ids = '531186390717825074';
 module.exports = {
+  catagory: 'owner',
   name: 'eval',
   description: 'eval',
   usage: '<code>',
-  owneronly: true,
   execute: async (message, args, client, db, packageInfo, Discord) => {
     if (!ids.includes(message.author.id)) return;
   const clean = text => {

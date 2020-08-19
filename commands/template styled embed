@@ -1,0 +1,32 @@
+ARGS
+    if (ids.includes(message.author.id)) {
+      const embed = new Discord.MessageEmbed()
+        .setColor(7506394)
+        .addField("<:logo:744624310294937672> " + message.author.username + " (BOT OWNER) Says:", args)
+        .setFooter(`© Brandgrand!bot Made by Brandgrand!real`);
+      message.channel.send(embed);
+      message.delete();
+    }
+    else{
+    const embed = new Discord.MessageEmbed()
+      .addField(message.author.username + " Says:", args)
+      .setFooter(`© Brandgrand!bot Made by Brandgrand!real`);
+    message.channel.send(embed);}
+  }
+
+IMAGE
+      if (ids.includes(message.author.id)) {
+      const embed = new Discord.MessageEmbed()
+        .setColor(7506394)
+        .setTitle("<:logo:744624310294937672> " + message.author.username + " (BOT OWNER) Says:")
+        .setImage('https://fontmeme.com/permalink/200816/8300d7bbff9e80375eb8893d8912c3d4.png')
+        .setFooter(`© Brandgrand!bot Made by Brandgrand!real`);
+      message.channel.send(embed);
+      message.delete();
+    }
+    else{
+    const embed = new Discord.MessageEmbed()
+   	.setTitle(message.author.username + " Says:")
+	  .setImage('https://fontmeme.com/permalink/200816/8300d7bbff9e80375eb8893d8912c3d4.png')
+      .setFooter(`© Brandgrand!bot Made by Brandgrand!real`);
+    message.channel.send(embed);}

@@ -1,2 +1,2 @@
-language = "nodejs"
+nplanguage = "nodejs"
 run="export PATH=$PATH:$(pwd)/node_modules/.bin; pm2 delete -s app || :; pm2 start BRANDGRANDBOT.js --name=app;  pm2 logs"  

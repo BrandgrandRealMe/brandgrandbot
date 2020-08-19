@@ -1,4 +1,5 @@
 module.exports = {
+    catagory: 'fun',
     name: 'work',
     description: 'Do some manual labor for money.',
     aliases: ['labor'],

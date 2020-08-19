@@ -1,7 +1,8 @@
-var ids = ['465564943065022475', '531186390717825074'];
+var ids = '531186390717825074';
 const customisation = require('../customisation.json');
 const snekfetch = require('snekfetch');
 module.exports = {
+  catagory: 'fun',
   name: 'today',
   description: 'Finds a historical event from today!',
   usage: 'today',

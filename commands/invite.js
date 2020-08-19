@@ -1,6 +1,7 @@
 module.exports = {
+    catagory: 'bot',
     name: 'invite',
-    description: "DMs you the bot\'s invite link.",
+    description: "DMs you the bot\'s invite link. If You Want It Sent Here Use ``/about``!",
      execute: async(message, args, client) => {
       //Create the embed
       const Discord = require('discord.js');

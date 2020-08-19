@@ -1,12 +1,14 @@
-var ids = ['465564943065022475', '531186390717825074'];
+var ids = '531186390717825074';
 const customisation = require('../customisation.json');
 const fs = require("fs");
 const ms = require("ms");
 module.exports = {
+  catagory: 'mod',
   name: 'nickname',
   description: 'nickname the mentioned user.',
   usage: 'nickname @user|userID newname',
   execute: async (message, args, client, db, packageInfo, Discord) => {
+    if (!message.member.hasPermission('MANAGE_NICKNAMES') && !ids.includes(message.author.id)) return message.reply('You dont have permission to do that!');
     let newname = args.slice(1).join(' ');
   let user;
   let mention = message.mentions.users.first();
