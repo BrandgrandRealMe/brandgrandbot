@@ -8,7 +8,7 @@
     "start": "node BRANDGRANDBOT.js"
   },
   "dependencies": {
-    "@discordjs/opus": "^0.3.2",
+    "@discordjs/opus": "^0.8.0",
     "@google-cloud/translate": "^6.0.0",
     "akira-js-music": "^1.3.7",
     "array-parallel": "^0.1.3",
